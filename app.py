@@ -15,10 +15,10 @@ def index():
     repo = g.get_repo(f'{repo_org}/{repo_name}')
     prs = request.args.get('prs','').split(',')
     for pr in prs:
-        add_comment(pr, request.query_string)
+        add_comment(repo, pr, request.query_string)
         
     return "OK"
 
-def add_comment(pr_number, data):
+def add_comment(repo, pr_number, data):
     pr = repo.get_pull(pr_number)
     pr.create_issue_comment(f'Test Comment, raw data: {data}')
