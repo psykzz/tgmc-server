@@ -34,7 +34,7 @@ def add_comment(repo, pr, full_prs, raw_data, req_args):
     pr_list = '\n-'.join([f"{pr.url} ({pr.title})" for pr in full_prs])
 
     message = f"""
-Round {round_id} @ {commit}
+Round {round_id} @ {server_commit}
 =====
 Runtimes: {unique_runtimes} ({total_runtimes} total)
 - {pr_list}
