@@ -40,6 +40,12 @@ def add_comment(repo, pr, full_prs, raw_data, req_args):
 
     pr_list = '\n-'.join([f"{pr.html_url} ({pr.title})" for pr in full_prs])
 
+    # Check if a comment already exists
+    for comment in pr.get_issue_comments():
+        if "Round {round_id}" in comment.body:
+            print(f"Skipping, round {round_id} has already been processed for this PR.")
+            return
+
     message = f"""
 Round {round_id} @ {server_commit}
 =====
