@@ -42,8 +42,7 @@ def add_comment(repo, pr, full_prs, raw_data, req_args):
 
     # Check if a comment already exists
     for comment in pr.get_issue_comments():
-        print(comment.body)
-        if "Round {round_id}" in comment.body:
+        if f"Round {round_id}" in comment.body:
             print(f"Skipping, round {round_id} has already been processed for this PR.")
             return
 
