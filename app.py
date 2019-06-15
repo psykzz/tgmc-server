@@ -20,7 +20,7 @@ def index(secret=None):
     repo = g.get_repo(f'{repo_org}/{repo_name}')
 
     prs = set(request.args.get('prs','').split(','))
-    if not prs:
+    if not prs or len(prs) == 0:
         return "NOT OK"
 
     full_prs = [repo.get_pull(int(pr)) for pr in prs]
