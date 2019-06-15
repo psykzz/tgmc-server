@@ -38,7 +38,7 @@ def add_comment(repo, pr, full_prs, raw_data, req_args):
     server_commit = req_args.get('commit', 'unknown')
     prs = req_args.get('prs', '').split(',')
 
-    pr_list = '\n-'.join([f"{pr.html_url} ({pr.title})" for pr in full_prs])
+    pr_list = '\n- '.join([f"{pr.html_url} ({pr.title})" for pr in full_prs])
 
     # Check if a comment already exists
     for comment in pr.get_issue_comments():
